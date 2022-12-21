@@ -1,0 +1,14 @@
+{
+  "kind": ["frontend", "server", "theme"],
+  "author_name": "",
+  "author_email": "",
+  "labextension_name": "@webds/my_extension",
+  "python_name": "{{ cookiecutter.labextension_name | replace('@', '') | replace('/', '_') }}",
+  "label": "{{ cookiecutter.labextension_name | replace('@webds/', '') | replace('_', ' ') | title }}",
+  "camel": "{{ cookiecutter.label | replace(' ', '') }}",
+  "project_short_description": "{{ cookiecutter.label }}",
+  "has_settings": "n",
+  "has_binder": "y",
+  "test": "n",
+  "repository": "https://github.com/github_username/{{ cookiecutter.python_name }}"
+}
