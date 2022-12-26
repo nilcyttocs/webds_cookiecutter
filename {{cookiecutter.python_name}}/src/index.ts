@@ -47,10 +47,10 @@ const plugin: JupyterFrontEndPlugin<void> = {
     service: WebDSService{% if cookiecutter.has_settings.lower().startswith('y') %},
     settingRegistry: ISettingRegistry | null{% endif %}
   ) => {
-    console.log("JupyterLab extension {{ cookiecutter.labextension_name }} is activated!");{% if cookiecutter.kind.lower() == 'theme' %}
-    const style = '{{ cookiecutter.labextension_name }}/index.css';
+    console.log("JupyterLab extension {{ cookiecutter.labextension_name }} is activated!");
 
-    webdsService = service;
+    webdsService = service;{% if cookiecutter.kind.lower() == 'theme' %}
+    const style = '{{ cookiecutter.labextension_name }}/index.css';
 
     manager.register({
       name: '{{ cookiecutter.labextension_name }}',
