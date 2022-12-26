@@ -29,6 +29,8 @@ namespace Attributes {
   export const rank = 999;
 }
 
+export let webdsService: WebDSService;
+
 /**
  * Initialization data for the {{ cookiecutter.labextension_name }} extension.
  */
@@ -47,6 +49,8 @@ const plugin: JupyterFrontEndPlugin<void> = {
   ) => {
     console.log("JupyterLab extension {{ cookiecutter.labextension_name }} is activated!");{% if cookiecutter.kind.lower() == 'theme' %}
     const style = '{{ cookiecutter.labextension_name }}/index.css';
+
+    webdsService = service;
 
     manager.register({
       name: '{{ cookiecutter.labextension_name }}',
@@ -87,7 +91,7 @@ const plugin: JupyterFrontEndPlugin<void> = {
       },
       execute: () => {
         if (!widget || widget.isDisposed) {
-          const content = new {{ cookiecutter.camel }}Widget(Attributes.id, service);
+          const content = new {{ cookiecutter.camel }}Widget(Attributes.id);
           widget = new WebDSWidget<{{ cookiecutter.camel }}Widget>({ content });
           widget.id = Attributes.id;
           widget.title.label = Attributes.label;

@@ -8,6 +8,8 @@ import { ThemeProvider } from "@mui/material/styles";
 
 import Landing from "./Landing";
 
+import { webdsService } from "./local_exports";
+
 export const {{ cookiecutter.camel }}Component = (props: any): JSX.Element => {
   const [initialized, setInitialized] = useState<boolean>(false);
   const [alert, setAlert] = useState<string | undefined>(undefined);
@@ -19,7 +21,7 @@ export const {{ cookiecutter.camel }}Component = (props: any): JSX.Element => {
     initialize();
   }, []);
 
-  const webdsTheme = props.service.ui.getWebDSTheme();
+  const webdsTheme = webdsService.ui.getWebDSTheme();
 
   return (
     <ThemeProvider theme={webdsTheme}>
